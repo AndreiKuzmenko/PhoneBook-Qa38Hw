@@ -45,28 +45,30 @@ app.getHelperContact().pause(5000);
         Assert.assertTrue(app.getHelperContact().isContactCreated(contact));
     }
 
-    @Test
+//    @Test
 
-    public void removeContact ( String user, int quantity)
-    {
-for( Contact contact : app.getContact())
-{ if(contact.getUser() == user)
-{
-int current = contact.getQuantity();
-if (current >= quantity)
-{
-    current -= quantity;
-}
-else {
-    System.out.println("Only" + current + "amount removed");
-    current = 0;
-}
-    contact.setQuantity(current);
-    return ;
+//    public void removeContact ( String user, int quantity)
+//    {
+//for( Contact contact : app.getContact())
+//{ if(contact.getUser() == user)
+//{
+//int current = contact.getQuantity();
+//if (current >= quantity)
+//{
+//    current -= quantity;
+//}
+//else {
+//    System.out.println("Only" + current + "amount removed");
+//    current = 0;
+//}
+//    contact.setQuantity(current);
+//    return ;
+//
+//}
+//}
+//    }
 
-}
-}
-    }
+
 
 
 
