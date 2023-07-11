@@ -23,6 +23,8 @@ public class ApplicationManager {
 
     String browser;
 
+
+
     public ApplicationManager(String browser) {
         this.browser = browser;
     }

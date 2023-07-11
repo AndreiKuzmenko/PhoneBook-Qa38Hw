@@ -3,9 +3,11 @@ package tests;
 import manager.TestNgListener;
 import models.User;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,15 +17,19 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestNgListener.class)
-public class Registration  extends TestBase {
-//       WebDriver wd;
 
-//    @BeforeMethod
-//    public void precondition() {
-//        if(app.getUser().isLogged()){
-//            app.getUser().logout();
-//        }
-//    }
+public class Registration  extends TestBase {
+
+
+    @BeforeMethod(alwaysRun = true)
+    public void precondition() {
+        if(app.getUser().isLogged()){
+            app.getUser().logout();
+        }
+//        wd.switchTo().alert().accept();
+//        wd.switchTo().alert().dismiss();
+////        wd.switchTo().alert().defaultConent();
+    }
 
 //
 //    @BeforeMethod
@@ -33,13 +39,15 @@ public class Registration  extends TestBase {
 //        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 //
 //    }
-    @Test
+
+    @Test(groups = {"smoke", "positive","regress"})
    public void RegPositive(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         User user = new User()
                 .withEmail("ref" + i + "@gmail.com")
                 .withPassword("$Qwe1234")
                 ;
+
 
         app.getUser(). openLoginForm();
         app.getUser(). fillLoginForm(user.getEmail(), user.getPassword());
@@ -98,7 +106,7 @@ public class Registration  extends TestBase {
 //    submitRegistration();
 //
 //    }
-    @Test
+@Test(groups = {"regress", "negative"})
     public void RegNegative3() {
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         String email = "ref" + i + "@gmail.com" ,password = "Qwe1234";
@@ -106,9 +114,11 @@ public class Registration  extends TestBase {
        app.getUser().openLoginForm();
         app.getUser().fillLoginForm(email,password);
         app.getUser().submitRegistration();
+        Assert.assertTrue(app.getUser().isWrongFormatMassage());
+        Assert.assertTrue(app.getUser().isAlertPresent());
 
     }
- @AfterMethod
+ @AfterMethod(alwaysRun = true)
 public void tearDown(){
 
 }

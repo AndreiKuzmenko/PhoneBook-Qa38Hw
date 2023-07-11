@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class RemoveContactTests  extends TestBase{
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public  void preconditions(){
 
         if(!app.getUser().isLogged()){

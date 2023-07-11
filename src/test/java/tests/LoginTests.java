@@ -17,7 +17,7 @@ public class LoginTests extends TestBase{
 //    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 //
 //}
-@BeforeMethod
+@BeforeMethod(alwaysRun = true)
 public void precondition() {
    if(app.getUser().isLogged()){
        app.getUser().logout();
@@ -50,7 +50,7 @@ public void precondition() {
 //
 
    }
-    @Test
+    @Test(groups = {"smoke","positive"})
     public void loginPositiveTestBase() {
 
       String email = "ref@gmail.com" ,password = "$Qwe1234";
@@ -89,7 +89,7 @@ public void precondition() {
 //
 //
 //    }
-@Test
+@Test(groups = {"regress","negative"})
 public void loginNegativeTestBase() {
 
     String email = "refmail.com", password = "$Qwe1234";
@@ -101,7 +101,7 @@ public void loginNegativeTestBase() {
     Assert.assertTrue(app.getUser().isAlertPresent());
 }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
 
     }

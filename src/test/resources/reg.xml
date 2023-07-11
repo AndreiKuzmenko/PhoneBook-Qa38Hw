@@ -3,7 +3,7 @@
 <suite name="ProductionReg" verbose="1" >
     <test name="registration" >
         <classes>
-            <class name="tests.RemoveContactTests"/>
+            <class name="tests.Registration"/>
         </classes>
     </test>
 </suite>
