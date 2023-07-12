@@ -3,15 +3,14 @@
 <suite name="ProductionNegative" verbose="1" >
     <groups>
         <run>
-            <include name="negatives"/>
+            <include name="negative"/>
         </run>
     </groups>
-    <test name="negativetests" >
+    <test name="negative_tests">
         <classes>
             <class name="tests.LoginTests"/>
-            <class name="tests.AddNewContactTests"/>
             <class name="tests.Registration"/>
-
+            <class name="tests.AddNewContactTests"/>
         </classes>
     </test>
 </suite>
