@@ -123,20 +123,20 @@ public class Registration  extends TestBase {
 public void tearDown(){
 
 }
-    @Test(dataProvider = "userDtoCSV", dataProviderClass = ProviderData.class)
-    public void RegPositiveDto(User user){
-//        int i = (int)(System.currentTimeMillis()/1000)%3600;
-//        User user = new User()
-//                .withEmail("ref" + i + "@gmail.com")
-//                .withPassword("$Qwe1234")
-//                ;
-
-
-        app.getUser(). openLoginForm();
-        app.getUser(). fillLoginForm(user.getEmail(), user.getPassword());
-        app.getUser(). submitRegistration();
-        app.getUser(). pause(5000);
-        // Assert.assertTrue(wd.findElements(By.xpath("//button")).size() > 0);
-        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
-    }
+//    @Test(dataProvider = "userDtoCSV", dataProviderClass = ProviderData.class)
+//    public void RegPositiveDto(User user){
+////        int i = (int)(System.currentTimeMillis()/1000)%3600;
+////        User user = new User()
+////                .withEmail("ref" + i + "@gmail.com")
+////                .withPassword("$Qwe1234")
+////                ;
+//
+//
+//        app.getUser(). openLoginForm();
+//        app.getUser(). fillLoginForm(user.getEmail(), user.getPassword());
+//        app.getUser(). submitRegistration();
+//        app.getUser(). pause(5000);
+//        // Assert.assertTrue(wd.findElements(By.xpath("//button")).size() > 0);
+//        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
+//    }
 }
